@@ -1,3 +1,4 @@
+#importing
 import os
 
 import discord
@@ -5,18 +6,23 @@ from dotenv import load_dotenv
 
 bot = discord.Client()
 
+#discord token secret
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 bot = discord.Client()
 
+#command line, for me
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
 
 
+#when the user sends a message
 @bot.event
-async def on_message(message):   
+async def on_message(message):  
+
+#things to look out for!
     roads = {'road', 'rd', 'street', 'st', 'ave', 'avenue', 'drive',
              'dr', 'court', 'ct', 'culdesac', 'cul-de-sac', 'avenue',
              'ave'}
@@ -26,8 +32,14 @@ async def on_message(message):
               'NC', 'ND', 'NE', 'NH', 'NJ', 'NM','NV', 'NY', 'OH',
               'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX','UT',
               'VA', 'VT', 'WA', 'WI', 'WV', 'WY'}
+              
+#message that was sent
     words = set(message.content.split(' '))
+    
+#checking for sensitive info
     for info in words:
         if (info is int and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) or info in roads or info in states):
+        
+#DM to user, telling to delete message(?)
             await message.author.send("This message may contain sensitive information! Do you really want other people to know this?")
 bot.run(TOKEN)
