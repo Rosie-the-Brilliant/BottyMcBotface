@@ -34,3 +34,4 @@ async def on_message(message):
     if message.content == 'hi':
         await message.channel.send("hey dirtbag")
 ##            await message.author.send("This message may contain sensitive information! Do you really want other people to know this?")
+bot.run(TOKEN)
