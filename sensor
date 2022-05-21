@@ -30,11 +30,5 @@ states = {'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE',
 async def on_message(message):
     words = set(message.content.split(' ')).lower()
     for info in words:
-        if (info is int and 
-	(len(str(info)) == 5 or 
-	len(str(info)) == 9 or 
-	len(str(info)) == 16) or 
-	info in roads or
-	info in states or 
-	'@' in info):
+        if (info is int and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) or info in roads or info in states or '@' in info):
 		await discord.channel.DMChannel.send("This message may contain sensitive information!", reference=message)
