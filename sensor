@@ -27,6 +27,8 @@ async def on_message(message):
               'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX','UT',
               'VA', 'VT', 'WA', 'WI', 'WV', 'WY'}
     words = set(message.content.split(' ')).lower()
+    if message.content == 'hi':
+        await message.channel.send(words)
     for info in words:
         if (info is int and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) or info in roads or info in states):
             await message.author.send("This message may contain sensitive information! Do you really want other people to know this?")
