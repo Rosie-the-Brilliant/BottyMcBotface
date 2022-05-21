@@ -16,5 +16,5 @@ for info in words:
                         len(str(info)) == 16) or
         info in roads or
         info in states or
-        '@' in info pass:
+        '@' in info:
         
