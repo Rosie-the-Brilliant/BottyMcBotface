@@ -27,11 +27,8 @@ states = {'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE',
 
 
 @bot.event
-async def on_message(ctx, message):
-    if ctx.author == client.user:
-        return
+async def on_message(message):
     words = set(message.content.split(' ')).lower()
     for info in words:
         if (info is int and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) or info in roads or info in states):
-            await member.create_dm()
-            await member.dm_channel.send_message(ctx.author, "This message may contain sensitive information! Do you really want other people to know this?")
+            await message.author.send("This message may contain sensitive information! Do you really want other people to know this?")
