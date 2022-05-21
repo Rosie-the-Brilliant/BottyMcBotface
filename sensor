@@ -31,5 +31,6 @@ async def on_message(message):
 ##    words = set(message.content.split(' ')).lower()
 ##    for info in words:
 ##        if (info is int and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) or info in roads or info in states):
-        if message.content == 'hi':
-            await message.author.send("This message may contain sensitive information! Do you really want other people to know this?")
+    if message.content == 'hi':
+        await message.channel.send("hey dirtbag")
+##            await message.author.send("This message may contain sensitive information! Do you really want other people to know this?")
