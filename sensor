@@ -22,6 +22,8 @@ async def on_ready():
 #when the user sends a message
 @bot.event
 async def on_message(message):  
+    if message.author = bot.User():
+        return
 
 #things to look out for!
     roads = {'road', 'rd', 'street', 'st', 'ave', 'avenue', 'drive',
