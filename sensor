@@ -33,11 +33,11 @@ async def on_message(message):
               'NC', 'ND', 'NE', 'NH', 'NJ', 'NM','NV', 'NY', 'OH',
               'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX','UT',
               'VA', 'VT', 'WA', 'WI', 'WV', 'WY'}
-    emailRegex = (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x
+    emailRegex = re.match((?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x
             23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9]
             (?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?
             [0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\
-            x0e-\x7f])+)\]):
+            x0e-\x7f])+)\]), message.content)
            
 #message that was sent
     words = set(message.content.split(' '))
@@ -48,7 +48,7 @@ async def on_message(message):
             await message.author.send("Yo, what number is that? 👀 There's no money there, right?")
         elif info in roads or info in states:
             await message.author.send("we don't actually WANT to know where you live. Do you want people to know this?")
-        elif re.match(emailRegex, info):
+        elif emailRegex:
             await message.author.send("If this is your email...beware of spam messages and phishy things.")
         elif re.match("I|i 'm sad", message.content):
             await message.author.send("Aww, I'm sorry. Have a heart emoji ❤️.")
