@@ -9,7 +9,7 @@ bot = discord.Client()
 
 #discord token secret
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = os.getenv('TOKEN')
 
 bot = discord.Client()
 
