@@ -40,18 +40,22 @@ async def on_message(message):
     words = set(message.content.split(' '))
     
 #checking for sensitive info
+     if re.match("H(ey|i|ello) Graham", message.content):
+            await message.channel.send("Sup, pointed-eared hobgoblin.")
+     elif re.match("H(ey|i|ello) Botty", message.content):
+            await message.channel.send("That's LORD Botty to you!")
+     elif message.content == "I'm sad":
+            await message.channel.send("Aww, I'm sorry. Hope you feel better ❤️.")
+            
     for info in words:
         if info.isnumeric() and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) :
             await message.author.send("Yo, what number is that?👀 There's no money there, right?")
-        if info in roads or info in states:
+        elif info in roads or info in states:
             await message.author.send("We don't actually WANT to know where you live. Do others have to know this?")
-        elif emailRegex:
+        elif re.match("([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+", info):
             await message.author.send("If this is your email...beware of spam messages and phishy things.")
-        elif message.content == "I'm sad":
-            await message.channel.send("Aww, I'm sorry. Hope you feel better ❤️.")
-        elif re.match("H(ey|i|ello) Graham", message.content):
-            await message.channel.send("Sup, pointed-eared hobgoblin.")
-        elif re.match("H(ey|i|ello) Botty", message.content):
-            print('debug message')
-            await message.channel.send("That's LORD Botty to you!")
+        elif info == weak:
+            await message.channel.send("Weak. Just like your password.")
+        elif re.match(memor(y|ize)):
+            await message.channel.send("If you can memorize your password, everyone else can too!")
 bot.run(TOKEN)
