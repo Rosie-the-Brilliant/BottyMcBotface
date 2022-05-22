@@ -41,7 +41,7 @@ async def on_message(message):
 #checking for sensitive info
     for info in words:
         await message.author.send(len(str(info))
-        if isinstance(info,int) and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16):
+        if isinstance(info,int) and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) :
             await message.author.send("Yo, what number is that? 👀 There's no money there, right?")
         elif info in roads or info in states:
             await message.author.send("we don't actually WANT to know where you live. Do you want people to know this?")
