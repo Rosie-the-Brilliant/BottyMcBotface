@@ -47,10 +47,10 @@ async def on_message(message):
             await message.author.send("We don't actually WANT to know where you live. Do others have to know this?")
         elif emailRegex:
             await message.author.send("If this is your email...beware of spam messages and phishy things.")
-        elif re.match("(I|i) ('|a)m sad", message.content):
+        elif re.match("I ('|a)m sad", message.content):
             await message.channel.send("Aww, I'm sorry. Hope you feel better ❤️.")
-        elif re.match("(H|h)(ey|i|ello) Graham", message.content):
+        elif re.match("H(ey|i|ello) Graham", message.content):
             await message.channel.send("Sup, pointed-eared hobgoblin.")
-        elif re.match("(H|h)(ey|i|ello) Botty", message.content):
+        elif re.match("H(ey|i|ello) Botty", message.content):
             await message.channel.send("That's LORD Botty to you!")
 bot.run(TOKEN)
