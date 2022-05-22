@@ -52,5 +52,6 @@ async def on_message(message):
         elif re.match("H(ey|i|ello) Graham", message.content):
             await message.channel.send("Sup, pointed-eared hobgoblin.")
         elif re.match("H(ey|i|ello) Botty", message.content):
-            await message.author.send("That's LORD Botty to you!")
+            print('debug message')
+            await message.channel.send("That's LORD Botty to you!")
 bot.run(TOKEN)
