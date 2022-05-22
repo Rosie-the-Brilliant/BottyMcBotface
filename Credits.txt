@@ -1,2 +1,3 @@
 EMAIL REGEX:                   RFC 5322 Official Standard for email regex, http://emailregex.com/
 DISCORD.PY API DOCS:           https://discordpy.readthedocs.io/en/stable/api.html
+PYTHON RE DOCS:                https://docs.python.org/3/library/re.html
