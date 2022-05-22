@@ -22,7 +22,7 @@ async def on_ready():
 #when the user sends a message
 @bot.event
 async def on_message(message):  
-    if message.author == bot.User():
+    if message.author == bot.user:
         return
 
 #things to look out for!
