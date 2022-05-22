@@ -40,11 +40,11 @@ async def on_message(message):
     words = set(message.content.split(' '))
     
 #checking for sensitive info
-     if re.match("H(ey|i|ello) Graham", message.content):
+    if re.match("H(ey|i|ello) Graham", message.content):
             await message.channel.send("Sup, pointed-eared hobgoblin.")
-     elif re.match("H(ey|i|ello) Botty", message.content):
+    elif re.match("H(ey|i|ello) Botty", message.content):
             await message.channel.send("That's LORD Botty to you!")
-     elif message.content == "I'm sad":
+    elif message.content == "I'm sad":
             await message.channel.send("Aww, I'm sorry. Hope you feel better ❤️.")
             
     for info in words:
