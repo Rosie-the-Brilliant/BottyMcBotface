@@ -41,7 +41,6 @@ async def on_message(message):
     
 #checking for sensitive info
     for info in words:
-        member.create_dm()
         if info.isnumeric() and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) :
             await message.author.send("Yo, what number is that?👀 There's no money there, right?")
         if info in roads or info in states:
