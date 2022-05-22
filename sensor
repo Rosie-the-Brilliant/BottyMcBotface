@@ -16,7 +16,7 @@ bot = discord.Client()
 #command line, for me
 @bot.event
 async def on_ready():
-    print(f'{bot.user} has connected to Discord!')
+    print(f'{bot.user} is online on Discord!')
 
 
 #when the user sends a message
@@ -24,7 +24,6 @@ async def on_ready():
 async def on_message(message):  
     if message.author == bot.user:
         return
-
 #things to look out for!
     roads = {'road', 'rd', 'street', 'st', 'ave', 'avenue', 'drive',
              'dr', 'court', 'ct', 'culdesac', 'cul-de-sac', 'avenue',
@@ -42,12 +41,17 @@ async def on_message(message):
     
 #checking for sensitive info
     for info in words:
+        member.create_dm()
         if info.isnumeric() and (len(str(info)) == 5 or len(str(info)) == 9 or len(str(info)) == 16) :
-            await message.author.send("Yo, what number is that? There's no money there, right?")
+            await message.author.send("Yo, what number is that?👀 There's no money there, right?")
         if info in roads or info in states:
-            await message.author.send("we don't actually WANT to know where you live. Do you want people to know this?")
+            await message.author.send("We don't actually WANT to know where you live. Do others have to know this?")
         elif emailRegex:
             await message.author.send("If this is your email...beware of spam messages and phishy things.")
-        elif re.search("I|i 'm sad", message.content):
-            await message.author.send("Aww, I'm sorry. Hope you feel better.")
+        elif re.match("(I|i) ('|a)m sad", message.content):
+            await message.channel.send("Aww, I'm sorry. Hope you feel better ❤️.")
+        elif re.match("(H|h)(ey|i|ello) (G|g)raham", message.content):
+            await message.channel.send("Sup, pointed-eared hobgoblin.")
+        elif re.match("(H|h)(ey|i|ello) (B|b)otty", message.content):
+            await message.channel.send("That's LORD Botty to you!")
 bot.run(TOKEN)
