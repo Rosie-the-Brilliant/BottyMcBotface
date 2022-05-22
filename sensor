@@ -50,10 +50,5 @@ async def on_message(message):
             await message.author.send("we don't actually WANT to know where you live. Do you want people to know this?")
         elif re.match(info, emailRegex):
             await message.author.send("If this is your email...beware of spam messages and phishy things.")
-        elif 
-time data '99/99/99' does not match format '%m/%d/%y'
-
-        
-#DM to user, telling to delete message(?)
-            await message.author.send("This message may contain sensitive information! Do you really want other people to know this?")
+        elif 'I'm sad' in 
 bot.run(TOKEN)
