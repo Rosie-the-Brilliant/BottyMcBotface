@@ -54,8 +54,8 @@ async def on_message(message):
             await message.author.send("We don't actually WANT to know where you live. Do others have to know this?")
         elif re.match("([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+", info):
             await message.author.send("If this is your email...beware of spam messages and phishy things.")
-        elif info == weak:
+        elif info == "weak":
             await message.channel.send("Weak. Just like your password.")
-        elif re.match(memor(y|ize)):
+        elif re.match("memor(y|ize)", info):
             await message.channel.send("If you can memorize your password, everyone else can too!")
 bot.run(TOKEN)
